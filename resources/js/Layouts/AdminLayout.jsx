@@ -1,3 +1,4 @@
+import AppFooter from '@/Components/AppFooter';
 import AppHeader from '@/Components/AppHeader';
 import AppSidebar from '@/Components/AppSidebar';
 import { CContainer, CSpinner } from '@coreui/react';
@@ -16,6 +17,7 @@ export default function AdminLayout({ children }) {
                         </Suspense>
                     </CContainer>
                 </div>
+                <AppFooter />
             </div>
         </Fragment>
     );
