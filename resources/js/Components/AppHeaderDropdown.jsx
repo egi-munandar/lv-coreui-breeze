@@ -20,8 +20,7 @@ import {
     CDropdownMenu,
     CDropdownToggle,
 } from '@coreui/react';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -58,7 +57,10 @@ const AppHeaderDropdown = () => {
                 className="py-0 pe-0"
                 caret={false}
             >
-                <CAvatar icon={faUser} size="md" />
+                <CAvatar
+                    src="https://fastly.picsum.photos/id/159/128/128.jpg?hmac=9liYpq_AFT3x_GkyG7ptn9QPFzP-l-1fFVI9-r7ZYQk"
+                    size="md"
+                />
             </CDropdownToggle>
             <CDropdownMenu className="pt-0" placement="bottom-end">
                 <CDropdownHeader className="bg-body-secondary fw-semibold mb-2">
@@ -118,7 +120,7 @@ const AppHeaderDropdown = () => {
                     </CBadge>
                 </CDropdownItem>
                 <CDropdownDivider />
-                <CDropdownItem onClick={submitLogout} href="#">
+                <CDropdownItem as={Link} method="post" href={route('logout')}>
                     <CIcon icon={cilLockLocked} className="me-2" />
                     Logout
                 </CDropdownItem>

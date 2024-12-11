@@ -54,47 +54,45 @@ export default function AppSidebar() {
         });
     }, [user]);
     return (
-        <div>
-            <CSidebar
-                className="border-end"
-                colorScheme="dark"
-                position="fixed"
-                unfoldable={unfoldable}
-                visible={sidebarShow}
-                onVisibleChange={(visible) => {
-                    dispatch(toggleSidebar(visible));
-                }}
-            >
-                <CSidebarHeader className="border-bottom">
-                    <CSidebarBrand to="/">
-                        <div className="sidebar-brand-full">
-                            <span className="h3">
-                                <FontAwesomeIcon
-                                    icon={faHelmetSafety}
-                                    className="me-2"
-                                />
-                                {appName}
-                            </span>
-                        </div>
-                        <FontAwesomeIcon
-                            icon={faHelmetSafety}
-                            height={32}
-                            className="sidebar-brand-narrow"
-                        />
-                    </CSidebarBrand>
-                    <CCloseButton
-                        className="d-lg-none"
-                        dark
-                        onClick={() => dispatch(toggleSidebar(false))}
+        <CSidebar
+            className="border-end"
+            colorScheme="dark"
+            position="fixed"
+            unfoldable={unfoldable}
+            visible={sidebarShow}
+            onVisibleChange={(visible) => {
+                dispatch(toggleSidebar(visible));
+            }}
+        >
+            <CSidebarHeader className="border-bottom">
+                <CSidebarBrand to="/">
+                    <div className="sidebar-brand-full">
+                        <span className="h3">
+                            <FontAwesomeIcon
+                                icon={faHelmetSafety}
+                                className="me-2"
+                            />
+                            {appName}
+                        </span>
+                    </div>
+                    <FontAwesomeIcon
+                        icon={faHelmetSafety}
+                        height={32}
+                        className="sidebar-brand-narrow"
                     />
-                </CSidebarHeader>
-                <AppSidebarNav items={navItems} />
-                <CSidebarFooter className="border-top d-none d-lg-flex">
-                    <CSidebarToggler
-                        onClick={() => dispatch(toggleUnfoldable(!unfoldable))}
-                    />
-                </CSidebarFooter>
-            </CSidebar>
-        </div>
+                </CSidebarBrand>
+                <CCloseButton
+                    className="d-lg-none"
+                    dark
+                    onClick={() => dispatch(toggleSidebar(false))}
+                />
+            </CSidebarHeader>
+            <AppSidebarNav items={navItems} />
+            <CSidebarFooter className="border-top d-none d-lg-flex">
+                <CSidebarToggler
+                    onClick={() => dispatch(toggleUnfoldable(!unfoldable))}
+                />
+            </CSidebarFooter>
+        </CSidebar>
     );
 }

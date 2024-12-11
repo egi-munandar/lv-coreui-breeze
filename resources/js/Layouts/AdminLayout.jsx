@@ -1,12 +1,9 @@
 import AppHeader from '@/Components/AppHeader';
 import AppSidebar from '@/Components/AppSidebar';
 import { CContainer, CSpinner } from '@coreui/react';
-import { usePage } from '@inertiajs/react';
 import { Fragment, Suspense } from 'react';
 
 export default function AdminLayout({ children }) {
-    const user = usePage().props.auth.user;
-
     return (
         <Fragment>
             <AppSidebar />

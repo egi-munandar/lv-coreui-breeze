@@ -30,7 +30,9 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         $u = $request->user();
-        $u->perms = $u->getPermissionNames();
+        if (!auth()->guest()) {
+            $u->perms = $u->getPermissionNames();
+        }
         unset($u->permissions);
         return [
             ...parent::share($request),
